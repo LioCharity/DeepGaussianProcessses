@@ -1,0 +1,16 @@
+function p = optimize_hyperparameters( params,input,t,K,iter )
+%params is a column vector of size D
+%input is a nX(D+2) matrix of inputs data
+%t is a raw vector of size n
+%iter is the number of iteration for the gradient descent
+%K is a nXn matrix: the actual covariance matrix with the actual parameters
+
+%the goal is to optimize the D first elements od the params vector
+
+[n, D] = size(input);  %dimensions of the input data.
+p = params(1:D);
+for i=1:iter
+   [fX, dfX] = gp01lik(params, input, t);
+   %
+end
+end
